@@ -21,11 +21,33 @@ def main():
 def calculateNextMove():
     confessCounter = 0
     silentCounter = 0
-    iterations
+    iterations = 0
     list = []
     queue = []
 
     list.append(last_opponent_move)
+
+    if last_opponent_move == "confess":
+        confessCounter += 1
+
+    if last_opponent_move == "silent":
+        silentCounter += 1
+
+    if iterations > 95 :
+        queue.append(snitch())
+    elif list[-5] == ["confess", "confess", "confess", "confess", "confess"] :
+        queue.append(snitch())
+        iterations += 1
+    elif list[-5] == ["silent", "silent", "silent", "silent", "silent"] :
+        queue.append(snitch())
+        iterations += 1
+    elif confessCounter >= silentCounter :
+        queue.append(snitch())
+        iterations += 1
+    else :
+        queue.append(donotsnitch())
+        iterations += 1
+
 
     if last_opponent_move == "confess":
         confessCounter += 1

@@ -1,10 +1,9 @@
-#CS 311 Assignment 3 Prisoners Dilemma - Kent Huynh
 
-def snitch ():
-    print ('confess')
+def snitch():
+    print("confess")
 
-def donotsnitch ():
-    print ('silent')
+def donotsnitch():
+    print("silent")
 
 confessCounter = 0
 silentCounter = 0
@@ -27,19 +26,20 @@ def calculateNextMove ():
 
     list.append(last_opponent_move)
 
-    if last_opponent_move == 'confess':
+    if last_opponent_move == "confess":
         confessCounter += 1
 
-    if last_opponent_move == 'silent':
+    if last_opponent_move == "silent":
         silentCounter += 1
 
     if iterations > 95 :
         queue.append(snitch())
-    elif list[-5] == ['confess', 'confess', 'confess', 'confess', 'confess'] :
+    elif list[-5] == ["confess", "confess", "confess", "confess", "confess"] :
         queue.append(snitch())
-    elif list[-5] == ['silent', 'silent', 'silent', 'silent', 'silent'] :
+    elif list[-5] == ["silent", "silent", "silent", "silent", "silent"] :
         queue.append(snitch())
     elif confessCounter >= silentCounter :
         queue.append(snitch())
     else :
         queue.append(donotsnitch())
+
